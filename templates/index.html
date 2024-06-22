@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Prediction</title>
+    <!-- <link rel="stylesheet" type="text/css" href="static/css/style.css"> -->
+</head>
+<body>
+    <div class="container">
+        <h1>Disease Prediction Heart </h1>
+        <!-- <form action="/submit_data" method="post">
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required><br><br>
+        
+            <label for="sex">Sex:</label>
+            <input type="text" id="sex" name="sex" required><br><br>
+        
+            <label for="cp">Chest Pain types:</label>
+            <input type="text" id="cp" name="cp" required><br><br>
+        
+            <label for="trestbps">Resting Blood Pressure:</label>
+            <input type="number" id="trestbps" name="trestbps" required><br><br>
+        
+            <label for="chol">Serum Cholestoral in mg/dl:</label>
+            <input type="number" id="chol" name="chol" required><br><br>
+        
+            <label for="fbs">Fasting Blood Sugar > 120 mg/dl (Yes/No):</label>
+            <input type="text" id="fbs" name="fbs" required><br><br>  <label for="restecg">Resting Electrocardiographic results:</label>
+            <input type="text" id="restecg" name="restecg" required><br><br>
+        
+            <label for="thalach">Maximum Heart Rate achieved:</label>
+            <input type="number" id="thalach" name="thalach" required><br><br>
+        
+            <label for="exang">Exercise Induced Angina (Yes/No):</label>
+            <input type="text" id="exang" name="exang" required><br><br>  <label for="oldpeak">ST depression induced by exercise:</label>
+            <input type="number" id="oldpeak" name="oldpeak" required><br><br>
+        
+            <label for="slope">Slope of the peak exercise ST segment:</label>
+            <input type="text" id="slope" name="slope" required><br><br>
+        
+            <label for="ca">Major vessels colored by flourosopy:</label>
+            <input type="text" id="ca" name="ca" required><br><br>
+        
+            <label for="thal">thal: 0 = normal; 1 = fixed defect; 2 = reversable defect:</label>
+            <input type="number" id="thal" name="thal" required><br><br>
+        
+            <button type="submit">Submit Data</button>
+          </form> -->
+          <!-- <form action="/parkinsons" method="post">
+
+
+            <h2>MDVP:</h2>
+    <label for="fo">Fo(Hz):</label>
+    <input type="text" id="fo" name="fo" required><br><br>
+
+    <label for="fhi">Fhi(Hz):</label>
+    <input type="text" id="fhi" name="fhi" required><br><br>
+
+    <label for="flo">Flo(Hz):</label>
+    <input type="text" id="flo" name="flo" required><br><br>
+
+    <label for="jitter_percent">Jitter(%):</label>
+    <input type="text" id="jitter_percent" name="jitter_percent" required><br><br>
+
+    <label for="jitter_abs">Jitter(Abs):</label>
+    <input type="text" id="jitter_abs" name="jitter_abs" required><br><br>
+
+    <label for="rap">RAP:</label>
+    <input type="text" id="rap" name="rap" required><br><br>
+
+    <label for="ppq">PPQ:</label>
+    <input type="text" id="ppq" name="ppq" required><br><br>
+
+    <label for="apq">APQ:</label>
+    <input type="text" id="apq" name="apq" required><br><br>
+
+    <h2>Jitter:</h2>
+    <label for="ddp">DDP:</label>
+    <input type="text" id="ddp" name="ddp" required><br><br>
+
+    <label for="shimmer">Shimmer:</label>
+    <input type="text" id="shimmer" name="shimmer" required><br><br>
+
+    <label for="shimmer_db">Shimmer(dB):</label>
+    <input type="text" id="shimmer_db" name="shimmer_db" required><br><br>
+
+    <label for="apq3">APQ3:</label>
+    <input type="text" id="apq3" name="apq3" required><br><br>
+
+    <label for="apq5">APQ5:</label>
+    <input type="text" id="apq5" name="apq5" required><br><br>
+
+    <label for="dda">DDA:</label>
+    <input type="text" id="dda" name="dda" required><br><br>
+
+    <h2>Other:</h2>
+    <label for="nhr">NHR:</label>
+    <input type="text" id="nhr" name="nhr" required><br><br>
+
+    <label for="hnr">HNR:</label>
+    <input type="text" id="hnr" name="hnr" required><br><br>
+
+    <label for="rpde">RPDE:</label>
+    <input type="text" id="rpde" name="rpde" required><br><br>
+
+    <label for="dfa">DFA:</label>
+    <input type="text" id="dfa" name="dfa" required><br><br>
+
+    <label for="spread1">spread1:</label>
+    <input type="text" id="spread1" name="spread1" required><br><br>
+
+    <label for="spread2">spread2:</label>
+    <input type="text" id="spread2" name="spread2" required><br><br>
+
+    <label for="d2">D2:</label>
+    <input type="text" id="d2" name="d2" required><br><br>
+
+    <label for="ppe">PPE:</label>
+    <input type="text" id="ppe" name="ppe" required><br><br>
+
+    <button type="submit">Submit Data</button>
+          </form> -->
+          <form action="/diabetes" method="post">  <div class="form-group">
+            <label for="pregnancies">Number of Pregnancies:</label>
+            <input type="text" id="pregnancies" name="pregnancies" required>
+        </div>
+        <div class="form-group">
+            <label for="glucose">Glucose Level:</label>
+            <input type="text" id="glucose" name="glucose" required>
+        </div>
+        <div class="form-group">
+            <label for="bloodPressure">Blood Pressure value:</label>
+            <input type="text" id="bloodPressure" name="bloodPressure" required>
+        </div>
+        <div class="form-group">
+            <label for="skinThickness">Skin Thickness value:</label>
+            <input type="text" id="skinThickness" name="skinThickness" required>
+        </div>
+        <div class="form-group">
+            <label for="insulin">Insulin Level:</label>
+            <input type="text" id="insulin" name="insulin" required>
+        </div>
+        <div class="form-group">
+            <label for="bmi">BMI value:</label>
+            <input type="text" id="bmi" name="bmi" required> </div>
+        <div class="form-group">
+            <label for="diabetesPedigreeFunction">Diabetes Pedigree Function value:</label>
+            <input type="text" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Age of the Person:</label>
+            <input type="text" id="age" name="age" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+          </html>
