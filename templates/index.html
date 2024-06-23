@@ -1,156 +1,244 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Disease Prediction</title>
-    <!-- <link rel="stylesheet" type="text/css" href="static/css/style.css"> -->
-</head>
-<body>
-    <div class="container">
-        <h1>Disease Prediction Heart </h1>
-        <!-- <form action="/submit_data" method="post">
-
-            <label for="age">Age:</label>
-            <input type="number" id="age" name="age" required><br><br>
-        
-            <label for="sex">Sex:</label>
-            <input type="text" id="sex" name="sex" required><br><br>
-        
-            <label for="cp">Chest Pain types:</label>
-            <input type="text" id="cp" name="cp" required><br><br>
-        
-            <label for="trestbps">Resting Blood Pressure:</label>
-            <input type="number" id="trestbps" name="trestbps" required><br><br>
-        
-            <label for="chol">Serum Cholestoral in mg/dl:</label>
-            <input type="number" id="chol" name="chol" required><br><br>
-        
-            <label for="fbs">Fasting Blood Sugar > 120 mg/dl (Yes/No):</label>
-            <input type="text" id="fbs" name="fbs" required><br><br>  <label for="restecg">Resting Electrocardiographic results:</label>
-            <input type="text" id="restecg" name="restecg" required><br><br>
-        
-            <label for="thalach">Maximum Heart Rate achieved:</label>
-            <input type="number" id="thalach" name="thalach" required><br><br>
-        
-            <label for="exang">Exercise Induced Angina (Yes/No):</label>
-            <input type="text" id="exang" name="exang" required><br><br>  <label for="oldpeak">ST depression induced by exercise:</label>
-            <input type="number" id="oldpeak" name="oldpeak" required><br><br>
-        
-            <label for="slope">Slope of the peak exercise ST segment:</label>
-            <input type="text" id="slope" name="slope" required><br><br>
-        
-            <label for="ca">Major vessels colored by flourosopy:</label>
-            <input type="text" id="ca" name="ca" required><br><br>
-        
-            <label for="thal">thal: 0 = normal; 1 = fixed defect; 2 = reversable defect:</label>
-            <input type="number" id="thal" name="thal" required><br><br>
-        
-            <button type="submit">Submit Data</button>
-          </form> -->
-          <!-- <form action="/parkinsons" method="post">
+  <head>
+    <title> Get Your Diagnosis </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-            <h2>MDVP:</h2>
-    <label for="fo">Fo(Hz):</label>
-    <input type="text" id="fo" name="fo" required><br><br>
+<style>
+  .nav {
+      height: 80px;
+      width: 100%;
+      background-color: lightblue;  /Nav background color/
+      color: aliceblue;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-align: center;
+      align-content: center;
+    }
+    body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-color: antiquewhite;
+            /*  background-image: url('static/images/bg-index.jpeg'); */  /* Background image */    
+    }
 
-    <label for="fhi">Fhi(Hz):</label>
-    <input type="text" id="fhi" name="fhi" required><br><br>
+    div{
+      background-color: white;
+    }
+    
+    .block {
+        display: flex;
+         column-gap: 5%;
+          box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+           margin: 4%;
+            border-radius: 20px;
+    }
 
-    <label for="flo">Flo(Hz):</label>
-    <input type="text" id="flo" name="flo" required><br><br>
+    .block:hover {
+        box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
 
-    <label for="jitter_percent">Jitter(%):</label>
-    <input type="text" id="jitter_percent" name="jitter_percent" required><br><br>
+    .block-image img{
+        border-radius: 20px;
+    }
 
-    <label for="jitter_abs">Jitter(Abs):</label>
-    <input type="text" id="jitter_abs" name="jitter_abs" required><br><br>
+    .block-info {
+        display: grid;
+         grid-template-rows: 0.2fr 0.8fr;
+          grid-template-columns: 1fr; 
+          width: 60%;
+    }
 
-    <label for="rap">RAP:</label>
-    <input type="text" id="rap" name="rap" required><br><br>
+    h1 {
+        margin: auto;
+    }
 
-    <label for="ppq">PPQ:</label>
-    <input type="text" id="ppq" name="ppq" required><br><br>
 
-    <label for="apq">APQ:</label>
-    <input type="text" id="apq" name="apq" required><br><br>
+    .cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: auto;
+}
 
-    <h2>Jitter:</h2>
-    <label for="ddp">DDP:</label>
-    <input type="text" id="ddp" name="ddp" required><br><br>
+.cta span {
+  padding-bottom: 7px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  padding-right: 15px;
+  text-transform: uppercase;
+}
 
-    <label for="shimmer">Shimmer:</label>
-    <input type="text" id="shimmer" name="shimmer" required><br><br>
+.cta svg {
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
 
-    <label for="shimmer_db">Shimmer(dB):</label>
-    <input type="text" id="shimmer_db" name="shimmer_db" required><br><br>
+.cta:hover svg {
+  transform: translateX(0);
+}
 
-    <label for="apq3">APQ3:</label>
-    <input type="text" id="apq3" name="apq3" required><br><br>
+.cta:active svg {
+  transform: scale(0.9);
+}
 
-    <label for="apq5">APQ5:</label>
-    <input type="text" id="apq5" name="apq5" required><br><br>
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  padding-bottom: 20px;
+}
 
-    <label for="dda">DDA:</label>
-    <input type="text" id="dda" name="dda" required><br><br>
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
 
-    <h2>Other:</h2>
-    <label for="nhr">NHR:</label>
-    <input type="text" id="nhr" name="nhr" required><br><br>
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 
-    <label for="hnr">HNR:</label>
-    <input type="text" id="hnr" name="hnr" required><br><br>
 
-    <label for="rpde">RPDE:</label>
-    <input type="text" id="rpde" name="rpde" required><br><br>
+    
 
-    <label for="dfa">DFA:</label>
-    <input type="text" id="dfa" name="dfa" required><br><br>
+</style>
 
-    <label for="spread1">spread1:</label>
-    <input type="text" id="spread1" name="spread1" required><br><br>
 
-    <label for="spread2">spread2:</label>
-    <input type="text" id="spread2" name="spread2" required><br><br>
 
-    <label for="d2">D2:</label>
-    <input type="text" id="d2" name="d2" required><br><br>
+  </head>
+  <body>
+    <center><h1 class="nav">Multiple Disease Prediction</h1></center>
+<div class="block">
+<div class="block-image">
+    <img src="https://www.cdc.gov/nchs/images/hus/topics/heart-disease-deaths-800x500.png?_=77642" alt="heart disease" width="300" height="200">
+</div>
 
-    <label for="ppe">PPE:</label>
-    <input type="text" id="ppe" name="ppe" required><br><br>
+<div class="block-info">
 
-    <button type="submit">Submit Data</button>
-          </form> -->
-          <form action="/diabetes" method="post">  <div class="form-group">
-            <label for="pregnancies">Number of Pregnancies:</label>
-            <input type="text" id="pregnancies" name="pregnancies" required>
+<h1>Heart Disease</h1>
+
+<p style="text-align: justify; margin-bottom: 0%;">CAD happens when coronary arteries struggle to supply the heart with enough blood, oxygen and nutrients. Cholesterol deposits, or plaques, are almost always to blame. These buildups narrow your arteries, decreasing blood flow to your heart. This can cause chest pain, shortness of breath or even a heart attack.</p>
+</div>
+<div class="block-link" style="width: 20%; margin-top: 4.5%;" >
+<div>
+<h1 style="margin: auto;">Get</h1>
+<!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 0 600 512" style="height: 20%; width: 20%;"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+-->
+&nbsp;
+</div>
+<a href="/heart_page">
+<button class="cta"  id="btn">
+    <span class="hover-underline-animation"> Prediction </span>
+    <svg
+      id="arrow-horizontal"
+      xmlns="http://www.w3.org/2000/svg"
+      width="30"
+      height="10"
+      viewBox="0 0 46 16"
+    >
+      <path
+        id="Path_10"
+        data-name="Path 10"
+        d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+        transform="translate(30)"
+      ></path>
+    </svg>
+  </button>
+</a>
+
+</div>
+</div>
+
+<div class="block">
+    <div class="block-image">
+        <img src="https://d18yrmqbzi0q7a.cloudfront.net/wp-content/uploads/diabetes-symptoms-and-treatment.jpg" alt="heart disease" width="300" height="200">
+    </div>
+    <div class="block-info">
+    
+    <h1>Diabetes</h1>
+    
+    <p style="text-align: justify; margin-bottom: 0%;">Diabetes is a chronic disease that occurs either when the pancreas does not produce enough insulin or when the body cannot effectively use the insulin it produces. Insulin is a hormone that regulates blood glucose.</p>
+    </div>
+    <div class="block-link" style="width: 20%; margin-top: 4.5%;" >
+    <div>
+    <h1 style="margin: auto;">Get</h1>
+    <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 0 600 512" style="height: 20%; width: 20%;"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+    -->
+    &nbsp;
+    </div>
+    <a href="/diabetes_page"> 
+    <button class="cta">
+        <span class="hover-underline-animation"> Prediction </span>
+        <svg
+          id="arrow-horizontal"
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="10"
+          viewBox="0 0 46 16"
+        >
+          <path
+            id="Path_10"
+            data-name="Path 10"
+            d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+            transform="translate(30)"
+          ></path>
+        </svg>
+      </button></a>
+    </div>
+    </div>
+
+
+    <div class="block">
+        <div class="block-image">
+            <img src="data:image/jpeg;base64,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" alt="heart disease" width="300" height="200">
         </div>
-        <div class="form-group">
-            <label for="glucose">Glucose Level:</label>
-            <input type="text" id="glucose" name="glucose" required>
+        <div class="block-info">
+        
+        <h1>Parkinson's Disease</h1>
+        
+        <p style="text-align: justify; margin-bottom: 0%;">Parkinson's disease is a progressive disorder that affects the nervous system and the parts of the body controlled by the nerves. Symptoms start slowly. The first symptom may be a barely noticeable tremor in just one hand. Tremors are common, but the disorder also may cause stiffness or slowing of movement.</p>
         </div>
-        <div class="form-group">
-            <label for="bloodPressure">Blood Pressure value:</label>
-            <input type="text" id="bloodPressure" name="bloodPressure" required>
+        <div class="block-link" style="width: 20%; margin-top: 4.5%;" >
+        <div>
+        <h1 style="margin: auto;">Get</h1>
+        <!--<svg xmlns="http://www.w3.org/2000/svg" viewBox="-200 0 600 512" style="height: 20%; width: 20%;"><path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/></svg>
+        -->
+        &nbsp;
         </div>
-        <div class="form-group">
-            <label for="skinThickness">Skin Thickness value:</label>
-            <input type="text" id="skinThickness" name="skinThickness" required>
+        <a href="/parkinsons_page">
+        <button class="cta" onclick="">
+            <span class="hover-underline-animation"> Prediction</span>
+            <svg
+              id="arrow-horizontal"
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="10"
+              viewBox="0 0 46 16"
+            >
+              <path
+                id="Path_10"
+                data-name="Path 10"
+                d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+                transform="translate(30)"
+              ></path>
+            </svg>
+          </button>
+        </a>
         </div>
-        <div class="form-group">
-            <label for="insulin">Insulin Level:</label>
-            <input type="text" id="insulin" name="insulin" required>
         </div>
-        <div class="form-group">
-            <label for="bmi">BMI value:</label>
-            <input type="text" id="bmi" name="bmi" required> </div>
-        <div class="form-group">
-            <label for="diabetesPedigreeFunction">Diabetes Pedigree Function value:</label>
-            <input type="text" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction" required>
-        </div>
-        <div class="form-group">
-            <label for="age">Age of the Person:</label>
-            <input type="text" id="age" name="age" required>
-        </div>
-        <button type="submit">Submit</button>
-    </form>
-          </html>
+
+
+
+    </body>
+    </html>

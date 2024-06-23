@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Diabetes Diagnosis </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+    body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-color: antiquewhite;
+    }
+    div{
+      background-color: white;
+    }
+    h1 {
+        margin: 10px 0;
+  text-align: center;
+  text-decoration: #fff!important;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    }
+
+    .form_1 {
+        column-count: 2;
+        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.4);
+        border-radius: 20px;
+        padding: 2%;
+        margin: 2%;
+        margin-top: 4%;
+    }
+
+    
+
+
+
+    .form_1:hover {
+        box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;}
+
+    
+
+    .forms_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        
+    }
+
+    li {
+        margin: 20px;
+    }
+
+    label {
+        font-weight: bold;
+        margin-right: 5%;
+    }
+
+    input {
+        border-radius: 20px;
+        padding: 10px;
+        border-color: rgb(161, 167, 228);
+        
+    }
+
+    
+button{
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: #333;
+  box-shadow: 0px 5px 10px rgba( 0, 0, 0, 0.3 );
+  border: 2px;
+  border-radius: 20px;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  margin-left: 45%;
+  
+
+}
+
+button:hover{
+  background: #fff;
+  color: #000;
+  transition: all 0.3s ease;
+  box-shadow: 0px 5px 10px rgba( 0, 0, 0, 0.5 );
+}
+
+</style>
+  </head>
+  <body>
+    <h1>Diabetes</h1>
+    <center><h2 >
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          
+          {% for category, message in messages %}
+            <p class="{{ category }}">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+        {% endwith %}
+        </h2></center>
+<div class="form_1">
+
+
+
+    <form action="/diabetes" method="post">  
+<ul>
+    <li>
+        <label for="pregnancies">Number of Pregnancies:</label>
+        <input type="text" id="pregnancies" name="pregnancies" required>
+    </li>
+    <li>
+        <label for="glucose">Glucose Level:</label>
+        <input type="text" id="glucose" name="glucose" required>
+    </li>
+    <li>
+        <label for="bloodPressure">Blood Pressure value:</label>
+        <input type="text" id="bloodPressure" name="bloodPressure" required>
+    </li>
+    <li>
+        <label for="skinThickness">Skin Thickness value:</label>
+        <input type="text" id="skinThickness" name="skinThickness" required>
+    </li>
+    <li>
+        <label for="insulin">Insulin Level:</label>
+        <input type="text" id="insulin" name="insulin" required>
+    </li>
+    <li>
+        <label for="bmi">BMI value:</label>
+        <input type="text" id="bmi" name="bmi" required> </li>
+    <li>
+        <label for="diabetesPedigreeFunction">Diabetes Pedigree Function value:</label>
+        <input type="text" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction" required>
+    </li>
+    <li>
+        <label for="age">Age of the Person:</label>
+        <input type="text" id="age" name="age" required>
+    </li>
+</ul>
+</div>
+<button type="submit"><h3>Submit</h3></button>
+</form>
+
+
+
+
+    </body>
+    </html>

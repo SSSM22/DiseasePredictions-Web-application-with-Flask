@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,flash
 import os
 import pickle
 
@@ -13,6 +13,9 @@ heart_disease_model = pickle.load(open(f'{working_dir}/saved_models/heart_diseas
 parkinsons_model = pickle.load(open(f'{working_dir}/saved_models/parkinsons_model.sav', 'rb'))
 
 app = Flask(__name__)
+app.secret_key ="secret key"
+
+
 @app.route('/')
 def main():
 
@@ -52,13 +55,15 @@ def ans1():
     parkinsons_prediction = parkinsons_model.predict([user_input])
 
     if parkinsons_prediction[0] == 1:
+            flash("The person has Parkinson's disease",'warning')
             parkinsons_diagnosis = "The person has Parkinson's disease"
     else:
+            flash("The person does not have Parkinson's disease",'success')
             parkinsons_diagnosis = "The person does not have Parkinson's disease"
 
 
     print(parkinsons_diagnosis)
-    return render_template('index.html', parkinsons_diagnosis=parkinsons_diagnosis)
+    return render_template('parkins.html', parkinsons_diagnosis=parkinsons_diagnosis)
 @app.route('/heart', methods=['POST'])
 def ans():
     age = request.form['age']
@@ -81,12 +86,14 @@ def ans():
     heart_prediction = heart_disease_model.predict([user_input])
 
     if heart_prediction[0] == 1:
+            flash("The person is having heart disease",'warning')
             heart_diagnosis = 'The person is having heart disease'
     else:
+            flash("The person does not have any heart disease",'success')
             heart_diagnosis = 'The person does not have any heart disease'
 
     print(heart_diagnosis)
-    return render_template('index.html', heart_diagnosis=heart_diagnosis)
+    return render_template('heart.html', error=heart_diagnosis)
 @app.route('/diabetes', methods=['POST'])
 def ans2():
         pregnancies = request.form['pregnancies']
@@ -104,11 +111,23 @@ def ans2():
         diabetes_prediction = diabetes_model.predict([user_input])
         
         if diabetes_prediction[0] == 1:
+                flash("The person is diabetic",'warning')
                 diabetes_diagnosis = 'The person is diabetic'
         else:
+                flash("The person is not diabetic",'success')
                 diabetes_diagnosis = 'The person is not diabetic'
         
         print(diabetes_diagnosis)
-        return render_template('index.html', diabetes_diagnosis=diabetes_diagnosis)
+        return render_template('diabetes.html', diabetes_diagnosis=diabetes_diagnosis)
+
+@app.route('/heart_page')
+def heart_page():
+       return render_template('heart.html')
+@app.route('/diabetes_page')
+def diabetes_page():
+        return render_template('diabetes.html')
+@app.route('/parkinsons_page')
+def parkinsons_page():
+        return render_template('parkinsons.html')
 if __name__ == '__main__':
     app.run(debug=True)    

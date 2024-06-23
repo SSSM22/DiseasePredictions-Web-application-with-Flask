@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Heart Diagnosis </title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+    body {
+        font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        background-color: antiquewhite;
+     /*  background-image: url('static/images/bg-index.jpeg'); */  /* Background image */    
+    }
+
+    div{
+      background-color: white;
+    }
+    h1 {
+        margin: 10px 0;
+  text-align: center;
+  text-decoration: #fff!important;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    }
+
+    .form_1 {
+        column-count: 2;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+        border-radius: 20px;
+        padding: 2%;
+        margin: 2%;
+        margin-top: 4%;
+    }
+
+    .form_2,.form_3,.form_4{
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+        padding: 6%;
+        margin: 5%;
+        border-radius: 20px;
+    }
+
+
+
+    .form_1:hover {
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;}
+
+        .form_2:hover {
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;}
+
+        .form_3:hover {
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;}
+
+    .form_4:hover {
+        box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;}
+
+    .forms_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        
+    }
+    .warning {
+        background-color: red;
+    }
+    .success {
+        background-color: green;
+    }
+    li {
+        margin: 5px;
+    }
+
+    label {
+        font-weight: bold;
+        margin-right: 5%;
+    }
+
+    input {
+        border-radius: 20px;
+        padding: 10px;
+        border-color: rgb(161, 167, 228);
+        
+    }
+
+    
+button{
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: #333;
+  box-shadow: 0px 5px 10px rgba( 0, 0, 0, 0.3 );
+  border: 2px;
+  border-radius: 20px;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  margin-left: 25%;
+  
+
+}
+
+button:hover{
+  background: #fff;
+  color: #000;
+  transition: all 0.3s ease;
+  box-shadow: 0px 5px 10px rgba( 0, 0, 0, 0.5 );
+}
+
+</style>
+
+
+
+  </head>
+  <body>
+    <h1>Heart Disease</h1>
+    <center><h2>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          
+          {% for category, message in messages %}
+            <p class="{{ category }}">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+        {% endwith %}
+        </h2></center>
+<div class="form_1">
+
+<form action="/heart" method="post">
+<ul>
+        <li>
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required><br><br>
+        </li>
+        <li>
+            <label for="sex">Sex:</label>
+            <input type="text" id="sex" name="sex" required><br><br>
+        </li>
+        <li>    
+            <label for="cp">Chest Pain types:</label>
+            <input type="text" id="cp" name="cp" required><br><br>
+        </li>
+        <li>
+            <label for="trestbps">Resting Blood Pressure:</label>
+            <input type="text" id="trestbps" name="trestbps" required><br><br>
+        </li>
+        <li>
+            <label for="chol">Serum Cholestoral in mg/dl:</label>
+            <input type="text" id="chol" name="chol" required><br><br>
+        </li>
+        <li>
+            <label for="fbs">Fasting Blood Sugar > 120 mg/dl (Yes/No):</label>
+            <input type="text" id="fbs" name="fbs" required><br><br>  
+        </li>
+        <li>
+            <label for="restecg">Resting Electrocardiographic results:</label>
+            <input type="text" id="restecg" name="restecg" required><br><br>
+        </li>
+        <li>
+            <label for="thalach">Maximum Heart Rate achieved:</label>
+            <input type="text" id="thalach" name="thalach" required><br><br>
+        </li>
+        <li>
+            <label for="exang">Exercise Induced Angina (Yes/No):</label>
+            <input type="text" id="exang" name="exang" required><br><br> 
+        </li>
+        <li>
+            <label for="oldpeak">ST depression induced by exercise:</label>
+            <input type="text" id="oldpeak" name="oldpeak" required><br><br>
+        </li>
+        <li>
+            <label for="slope">Slope of the peak exercise ST segment:</label>
+            <input type="text" id="slope" name="slope" required><br><br>
+        </li>
+        <li>
+            <label for="ca">Major vessels colored by flourosopy:</label>
+            <input type="text" id="ca" name="ca" required><br><br>
+        </li>
+        <li>
+            <label for="thal">thal: 0 = normal; 1 = fixed defect; 2 = reversable defect:</label>
+            <input type="text" id="thal" name="thal" required><br><br>
+        </li>
+        </ul>
+            <button type="submit"><h3>Submit Data</h3></button>
+          </form> 
+        </div>
+</div>
+
+</div>
+
+    </body>
+    </html>
