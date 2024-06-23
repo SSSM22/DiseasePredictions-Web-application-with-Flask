@@ -63,7 +63,7 @@ def ans1():
 
 
     print(parkinsons_diagnosis)
-    return render_template('parkins.html', parkinsons_diagnosis=parkinsons_diagnosis)
+    return render_template('parkinsons.html', parkinsons_diagnosis=parkinsons_diagnosis)
 @app.route('/heart', methods=['POST'])
 def ans():
     age = request.form['age']
