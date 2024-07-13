@@ -1,5 +1,5 @@
-﻿# DiseasePredictions-Web-application-with-Flask__
- A disease prediction using Machine Learning and a web interface to take inputs__ 
+﻿# DiseasePredictions-Web-application-with-Flask
+ A disease prediction using Machine Learning and a web interface to take inputs<br>
 ###1.Create a Virtual Environment such that the dependecies wont disturb your root__ 
   python3 -m venv <myenvname>__
 ###2.Activate the virtual environment and install the dependencies__
